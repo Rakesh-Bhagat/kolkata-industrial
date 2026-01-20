@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Navbar } from '@/components/navbar';
@@ -8,7 +8,6 @@ import { Footer } from '@/components/footer';
 import { products } from '@/lib/products';
 import { Search, X } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
-import { Suspense } from 'react';
 
 const categories = [
   'All',
@@ -33,9 +32,17 @@ const categories = [
   'Tools',
 ];
 
-const Loading = () => null;
+const Loading = () => <div className="p-8 text-center">Loading...</div>;
 
 export default function ProductsPage() {
+  return (
+    <Suspense fallback={<Loading />}>
+      <ProductsContent />
+    </Suspense>
+  );
+}
+
+function ProductsContent() {
   const searchParams = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category') || 'All');
   const [searchQuery, setSearchQuery] = useState(searchParams.get('query') || '');
@@ -54,8 +61,7 @@ export default function ProductsPage() {
     <>
       <Navbar />
       <main>
-        {/* Page Header */}
-        <section className="bg-gradient-to-b from-background to-secondary py-12 md:py-16">
+        <section className="bg-linear-to-b from-background to-secondary py-12 md:py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               Product Catalog
@@ -176,11 +182,3 @@ export default function ProductsPage() {
     </>
   );
 }
-
-// export const dynamic = 'force-dynamic';
-
-// export function generateStaticParams() {
-//   return categories.map((category) => ({
-//     category: category.toLowerCase(),
-//   }));
-// }
