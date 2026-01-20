@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemaps
+Sitemap: https://kolataindustrialcompany.com/sitemap.xml
+
+# Crawl Delay
+Crawl-delay: 1
