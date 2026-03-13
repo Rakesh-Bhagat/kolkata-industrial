@@ -11,25 +11,20 @@ import { useSearchParams } from 'next/navigation';
 
 const categories = [
   'All',
-  'Hoists & Lifts',
+  'Hoists',
   'Winches',
-  'Ropes & Slings',
+  'Wire Ropes & Slings',
   'Material Handling',
-  'Safety Equipment',
-  'Hardware & Fittings',
-  'Trolleys & Carriers',
-  'Clamps & Hardware',
-  'Cable Equipment',
-  'Jacks & Supports',
-  'Rollers & Wheels',
-  'Scaffolding',
-  'Safety & Traffic',
-  'Brakes & Safety',
-  'Electrical Equipment',
-  'Control Equipment',
-  'Measuring Equipment',
-  'Maintenance & Supplies',
-  'Tools',
+  'Hoist Accessories',
+  'Rigging Equipment',
+  'Rigging Hardware',
+  'Lifting Accessories',
+  'Crane Components',
+  'Safety & PPE',
+  'Construction Equipment',
+  'Lubricants',
+  'Power Tools',
+  
 ];
 
 const Loading = () => <div className="p-8 text-center">Loading...</div>;

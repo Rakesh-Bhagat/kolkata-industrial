@@ -84,7 +84,7 @@ export default async function ProductPage({ params }: Props) {
                   src={product.image || "/placeholder.svg"}
                   alt={product.name}
                   fill
-                  className="object-cover"
+                  className=" object-center"
                   priority
                 />
               </div>
@@ -107,7 +107,7 @@ export default async function ProductPage({ params }: Props) {
                 <div className="mb-8">
                   <h3 className="text-lg font-semibold text-foreground mb-4">Key Features</h3>
                   <ul className="space-y-3">
-                    {product.features.map((feature, index) => (
+                    {product.features?.map((feature, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <Check className="text-primary flex-shrink-0 mt-0.5" size={20} />
                         <span className="text-foreground">{feature}</span>
@@ -115,6 +115,25 @@ export default async function ProductPage({ params }: Props) {
                     ))}
                   </ul>
                 </div>
+
+                {product.specifications && (
+                  <div className="mb-8">
+                    <h3 className="text-lg font-semibold mb-4">Specifications</h3>
+                    <div className="border border-border rounded-lg overflow-hidden">
+                      {product.specifications.map((spec, index) => (
+                        <div
+                          key={index}
+                          className="flex justify-between px-4 py-3 border-b last:border-none"
+                        >
+                          <span className="font-medium text-muted-foreground">
+                            {spec.label}
+                          </span>
+                          <span className="text-foreground">{spec.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 {/* CTA Section */}
                 <div className="bg-secondary rounded-lg p-8 border border-border">
