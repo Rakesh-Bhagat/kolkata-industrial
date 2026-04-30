@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
-import { ArrowRight, Shield, Zap, Clock, FileDown } from 'lucide-react';
+import { ArrowRight, Shield, Zap, Clock, FileDown, Phone, Mail, MapPin } from 'lucide-react';
 
 const categories = [
   { name: 'Hoists & Lifts', count: '5+' },
@@ -83,7 +83,7 @@ export default function Home() {
         <section id="about" className="py-16 md:py-24 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="relative h-80 md:h-96">
+              <div className="relative h-80 md:h-96 ">
                 <Image
                   src="/products/chain-pulley-block.jpg"
                   alt="About Kolkata Industrial"
@@ -201,7 +201,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-primary-foreground mx-auto mb-4">
-                  📞
+                  <Phone size={24} />
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">Phone</h3>
                 <p className="text-muted-foreground text-sm">
@@ -217,7 +217,7 @@ export default function Home() {
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-primary-foreground mx-auto mb-4">
-                  ✉️
+                  <Mail />
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">Email</h3>
                 <a
@@ -229,7 +229,7 @@ export default function Home() {
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-primary-foreground mx-auto mb-4">
-                  📍
+                  <MapPin />
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">Address</h3>
                 <p className="text-muted-foreground text-sm">
