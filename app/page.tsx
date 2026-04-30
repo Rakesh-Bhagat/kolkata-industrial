@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
-import { ArrowRight, Shield, Zap, Clock } from 'lucide-react';
+import { ArrowRight, Shield, Zap, Clock, FileDown } from 'lucide-react';
 
 const categories = [
   { name: 'Hoists & Lifts', count: '5+' },
@@ -60,19 +60,19 @@ export default function Home() {
                     View Products <ArrowRight size={20} />
                   </Link>
                   <a
-                    href="#contact"
-                    className="inline-flex items-center gap-2 px-6 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors font-semibold"
+                    href="https://drive.google.com/file/d/1qEyZg2_9xSg1TNyEAcdQpP1-XS1hwp_U/view" target='_blank'
+                    className="inline-flex items-center gap-2 px-4 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors font-semibold"
                   >
-                    Contact Us
+                    <FileDown  size={28} /> Download Catalog 
                   </a>
                 </div>
               </div>
-              <div className="relative h-64 md:h-96">
+              <div className="relative h-64 md:h-96 bg-white rounded-lg">
                 <Image
-                  src="/products/electric-hoist.jpg"
+                  src="/products/electric-hoist.jpeg"
                   alt="Industrial Equipment"
                   fill
-                  className="object-cover rounded-lg shadow-lg"
+                  className="object-contain rounded-lg shadow-lg"
                 />
               </div>
             </div>

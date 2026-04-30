@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,12 +21,12 @@ export function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-primary-foreground font-bold text-lg group-hover:shadow-lg transition-shadow">
-              K
+            <div className="size-16  rounded-lg flex items-center justify-center text-primary-foreground font-bold text-lg ">
+              <Image src="/products/logo.png" alt="Kolkata Industrial Logo" width={24} height={24} className='object-cover size-16' />
             </div>
             <div className="hidden sm:block">
-              <div className="text-sm font-bold text-foreground">Kolkata</div>
-              <div className="text-xs text-muted-foreground">Industrial</div>
+              <div className="text-sm font-bold text-foreground">Kolkata Industrial</div>
+              <div className="text-xs text-muted-foreground">Company</div>
             </div>
           </Link>
 

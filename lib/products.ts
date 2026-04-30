@@ -377,7 +377,7 @@ export const products: Product[] = [
   {
     id: "webbing-sling",
     name: "Webbing Sling",
-    category: "Wire Ropes & Slings",
+    category: "Webbing Slings",
     description:
       "JAG-PRO Brand lightweight, durable polyester webbing slings. Unaffected by oil and grease, with good chemical resistance. Color-coded by WLL capacity from 1 to 10 tonnes.",
     image: "/products/webbing-sling.png",
@@ -404,7 +404,7 @@ export const products: Product[] = [
   {
     id: "polyester-round-sling",
     name: "Polyester Round Sling",
-    category: "Wire Ropes & Slings",
+    category: "Webbing Slings",
     description:
       "JAG-PRO Brand heavy-duty continuous-loop polyester round slings for lifting delicate, finished, or irregular loads. Color-coded per EN 1492-2 with 5:1 – 7:1 safety factors.",
     image: "/products/round-sling.png",
@@ -427,7 +427,7 @@ export const products: Product[] = [
   {
     id: "ratchet-lashing-belt",
     name: "Ratchet Lashing Belt",
-    category: "Wire Ropes & Slings",
+    category: "Webbing Slings",
     description:
       "Industrial ratchet belt for securing cargo during transportation. Available in 25 mm, 35 mm, and 50 mm widths. Heat-treated steel ratchet and hooks with zinc coating.",
     image: "/products/ratchet-belt.png",
@@ -446,7 +446,7 @@ export const products: Product[] = [
   {
     id: "polypropylene-ropes",
     name: "Polypropylene (PP) Ropes",
-    category: "Wire Ropes & Slings",
+    category: "Safety Equipment",
     description:
       "High-strength lightweight synthetic ropes made from virgin PP multifilament or monofilament. Float on water. Excellent abrasion resistance, UV stabilized. Conform to IS 5175:2022.",
     image: "/products/pp-rope.png",
@@ -712,7 +712,7 @@ export const products: Product[] = [
   {
     id: "safety-belts",
     name: "Safety Belts & Full Body Harness",
-    category: "Safety & PPE",
+    category: "Safety Equipment",
     description:
       "Fall-protection safety belts and full-body harnesses constructed from high-tenacity polyester or nylon webbing with alloy steel / forged steel metal components for maximum strength and shock absorption.",
     image: "/products/safety-belt.png",
@@ -721,7 +721,7 @@ export const products: Product[] = [
   {
     id: "safety-shoe",
     name: "Safety Shoes",
-    category: "Safety & PPE",
+    category: "Safety Equipment",
     description:
       "Safety footwear conforming to EN ISO 20345. Protects against bumps, crushing, falling objects, sharp objects, heat, cold, and hot substances. Brands: Karam, Acme (Atom), Khadim, Udyogi.",
     image: "/products/safety-shoe.png",
@@ -737,7 +737,7 @@ export const products: Product[] = [
   {
     id: "safety-jackets",
     name: "Safety Jackets",
-    category: "Safety & PPE",
+    category: "Safety Equipment",
     description:
       "High-visibility fluorescent polyester / polyester mesh safety jackets (70–130 GSM) with 2-inch high-intensity reflective tape. Conform to IS-15809:2017 / EN 471.",
     image: "/products/safety-jacket.png",
@@ -753,7 +753,7 @@ export const products: Product[] = [
   {
     id: "safety-helmet",
     name: "Safety Helmet",
-    category: "Safety & PPE",
+    category: "Safety Equipment",
     description:
       "Industrial safety helmets offering exceptional comfort and head protection for challenging environments. Designed for easy integration of additional PPE accessories.",
     image: "/products/safety-helmet.png",
@@ -762,7 +762,7 @@ export const products: Product[] = [
   {
     id: "safety-gloves",
     name: "Safety Gloves",
-    category: "Safety & PPE",
+    category: "Safety Equipment",
     description:
       "Industrial safety gloves for protection against chemical burns, abrasions, cuts, and other job-site injuries. Available in multiple types suited for different applications.",
     image: "/products/safety-gloves.png",
