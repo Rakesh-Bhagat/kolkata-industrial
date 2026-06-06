@@ -1,28 +1,48 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { products } from '@/lib/products';
+import { siteConfig } from '@/lib/site';
+import { BreadcrumbJsonLd, ProductJsonLd } from '@/components/structured-data';
 import { ArrowLeft, Check } from 'lucide-react';
 
 type Props = {
   params: Promise<{ id: string }>;
 };
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const product = products.find((p) => p.id === id);
 
   if (!product) {
     return {
       title: 'Product Not Found',
+      robots: { index: false, follow: true },
     };
   }
 
+  const url = `${siteConfig.url}/products/${product.id}`;
   return {
-    title: `${product.name} - Kolkata Industrial Company`,
+    title: `${product.name} — ${product.category}`,
     description: product.description,
+    keywords: [product.name, product.category, ...siteConfig.keywords],
+    alternates: { canonical: `/products/${product.id}` },
+    openGraph: {
+      title: `${product.name} | ${siteConfig.name}`,
+      description: product.description,
+      url,
+      type: 'website',
+      images: [{ url: product.image, alt: product.name }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${product.name} | ${siteConfig.name}`,
+      description: product.description,
+      images: [product.image],
+    },
   };
 }
 
@@ -45,8 +65,24 @@ export default async function ProductPage({ params }: Props) {
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 3);
 
+  const productUrl = `${siteConfig.url}/products/${product.id}`;
+
   return (
     <>
+      <ProductJsonLd
+        name={product.name}
+        description={product.description}
+        image={product.image}
+        category={product.category}
+        url={productUrl}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteConfig.url },
+          { name: 'Products', url: `${siteConfig.url}/products` },
+          { name: product.name, url: productUrl },
+        ]}
+      />
       <Navbar />
       <main>
         {/* Breadcrumb */}

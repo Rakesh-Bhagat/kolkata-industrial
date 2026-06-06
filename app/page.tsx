@@ -50,7 +50,7 @@ export default function Home() {
                   Industrial Lifting & Material Handling Solutions
                 </h1>
                 <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                  Professional equipment supplier providing comprehensive solutions for material handling, lifting, and industrial operations across India since years of trusted service.
+                  <strong className="font-semibold text-foreground">Kolkata Industrial Company</strong> is a professional equipment supplier providing comprehensive solutions for material handling, lifting, and industrial operations across India since years of trusted service.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link

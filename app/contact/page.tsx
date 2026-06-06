@@ -1,9 +1,25 @@
 import { Suspense } from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { ContactForm } from '@/components/contact-form';
+import { siteConfig } from '@/lib/site';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Contact Us — Get a Quote on Industrial Equipment',
+  description:
+    'Contact Kolkata Industrial Company for quotes, product information and technical support on industrial lifting & material handling equipment. Call 8777619134 or visit us at Santoshpur Station Road, Kolkata – 700141.',
+  alternates: { canonical: '/contact' },
+  openGraph: {
+    title: `Contact Us | ${siteConfig.name}`,
+    description:
+      'Get quotes and expert support on industrial lifting & material handling equipment from Kolkata Industrial Company.',
+    url: `${siteConfig.url}/contact`,
+    type: 'website',
+  },
+};
 
 function ContactPageContent() {
   return (

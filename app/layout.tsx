@@ -2,15 +2,29 @@ import React from "react"
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { siteConfig } from '@/lib/site'
+import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/structured-data'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Kolkata Industrial Company - Industrial Lifting & Material Handling Solutions',
-  description: 'Professional supplier of industrial lifting equipment, hoists, winches, ropes, slings, and material handling solutions in Kolkata, India.',
-  keywords: 'industrial equipment, lifting equipment, material handling, hoists, winches, chain pulley blocks, Kolkata',
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: `${siteConfig.name} | ${siteConfig.tagline} in Kolkata`,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: [...siteConfig.keywords],
+  applicationName: siteConfig.name,
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  alternates: {
+    canonical: '/',
+  },
+  category: 'Industrial Equipment',
   icons: {
     icon: [
       {
@@ -29,10 +43,40 @@ export const metadata: Metadata = {
     apple: '/apple-icon.png',
   },
   openGraph: {
-    title: 'Kolkata Industrial Company',
-    description: 'Industrial Lifting & Material Handling Solutions',
+    title: `${siteConfig.name} | ${siteConfig.tagline}`,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
     type: 'website',
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${siteConfig.name} | ${siteConfig.tagline}`,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  // After verifying ownership in Google Search Console, paste the token here:
+  // verification: { google: 'your-google-site-verification-token' },
 }
 
 export default function RootLayout({
@@ -43,6 +87,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans antialiased`}>
+        <OrganizationJsonLd />
+        <WebSiteJsonLd />
         {children}
         <Analytics />
       </body>
