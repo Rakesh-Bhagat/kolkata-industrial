@@ -71,7 +71,7 @@ export default async function ProductPage({ params }: Props) {
     <>
       <ProductJsonLd
         name={product.name}
-        description={product.description}
+        description={product.overview || product.description}
         image={product.image}
         category={product.category}
         url={productUrl}
@@ -216,6 +216,38 @@ export default async function ProductPage({ params }: Props) {
                 </div>
               </div>
             </div>
+
+            {/* Overview */}
+            {product.overview && (
+              <div className="mb-16 max-w-4xl">
+                <h2 className="text-3xl font-bold text-foreground mb-6">
+                  About the {product.name}
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {product.overview}
+                </p>
+              </div>
+            )}
+
+            {/* Applications */}
+            {product.applications && product.applications.length > 0 && (
+              <div className="mb-16">
+                <h2 className="text-3xl font-bold text-foreground mb-8">
+                  Applications &amp; Industries
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {product.applications.map((application, index) => (
+                    <div
+                      key={index}
+                      className="flex items-start gap-3 bg-secondary rounded-lg p-5 border border-border"
+                    >
+                      <Check className="text-primary flex-shrink-0 mt-0.5" size={20} />
+                      <span className="text-foreground">{application}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Related Products */}
             {relatedProducts.length > 0 && (
